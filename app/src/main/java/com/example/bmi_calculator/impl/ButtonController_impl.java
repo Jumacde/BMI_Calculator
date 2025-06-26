@@ -37,11 +37,9 @@ public class ButtonController_impl implements ButtonController {
         double calcWeight = bmiCalculate.getCalcWeight();
         double bmi = bmiCalculate.getBmi();
         boolean isInput = bmiCalculate.getIsInput();
+        bmiCalculate.setIsInput(true);
 
-        if (buttons.equals("submit")) {
-            bmiCalculate.callCalcBmi();
-
-        }
+        bmiCalculate.callCalcBmi();
     }
 
 }
