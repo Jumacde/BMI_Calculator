@@ -3,6 +3,7 @@ package com.example.bmi_calculator;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +16,7 @@ import com.example.bmi_calculator.impl.InputController_impl;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textViewBMI,textViewComment;
+    private EditText editTextHeight, editTextWeight;
     private InputController inputController;
     private BMICalculate bmiCalculate;
     private DisplayControl displayControl;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         textViewBMI = findViewById(R.id.bmiText);
         textViewComment = findViewById(R.id.commentText);
+        editTextHeight = (EditText) findViewById(R.id.height);
+        editTextWeight = (EditText) findViewById(R.id.weight);
 
         inputController = new InputController_impl();
         bmiCalculate = new BMICalculate_impl(inputController);
