@@ -38,7 +38,7 @@ public class ButtonController_impl implements ButtonController {
         if (buttons.equals("submit")) {
             bmiCalculate.callCalcBmi();
         } else if (buttons.equals("clear")) {
-            
+
         }
     }
 

@@ -9,14 +9,14 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bmi_calculator.impl.BMICalculate_impl;
-import com.example.bmi_calculator.impl.Display_impl;
+import com.example.bmi_calculator.impl.DisplayControlControl_impl;
 import com.example.bmi_calculator.impl.ButtonController_impl;
 import com.example.bmi_calculator.impl.InputController_impl;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textViewBMI,textViewComment;
     private BMICalculate bmiCalculate;
-    private Display display;
+    private DisplayControl displayControl;
     private InputController inputController;
     private ButtonController buttonController;
 
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         textViewComment = findViewById(R.id.commentText);
 
         bmiCalculate = new BMICalculate_impl();
-        display = new Display_impl();
+        displayControl = new DisplayControlControl_impl(bmiCalculate);
         inputController = new InputController_impl();
         buttonController = new ButtonController_impl(bmiCalculate);
 
