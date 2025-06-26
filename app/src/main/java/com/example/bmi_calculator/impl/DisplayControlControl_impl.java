@@ -79,7 +79,7 @@ public class DisplayControlControl_impl implements DisplayControl {
         if (buttons.equals("submit")) {
             return formatNumber(bmi);
         } else {
-            return null;
+            return String.valueOf(Double.POSITIVE_INFINITY);
         }
     }
 
