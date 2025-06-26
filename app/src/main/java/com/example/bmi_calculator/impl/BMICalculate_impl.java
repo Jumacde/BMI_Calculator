@@ -87,21 +87,20 @@ public class BMICalculate_impl implements BMICalculate {
         calcBmi();
     }
 
-    @Override
-    public void callConvertBmi() {
-        convertBmi();
-    }
-
     private void calcBmi(){
         setIsInput(true);
+        double squHeight;
+        double result;
         if (!inputHeight.isEmpty() && !inputWeight.isEmpty()) {
             calcHeight = Double.parseDouble(inputHeight);
             calcWeight = Double.parseDouble(inputWeight);
+            squHeight = calcHeight * calcHeight;
+
+            result = calcWeight/squHeight;
+            bmi = result * 10000;
+        } else {
+            return;
         }
-    }
-
-    private void convertBmi() {
-
     }
 
 }
