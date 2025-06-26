@@ -7,39 +7,46 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:layout_gravity="center_vertical"
-    android:background="@color/CosmicLatte"
+    android:background="@color/MaastrichtBlue"
     tools:context=".MainActivity">
-    <LinearLayout
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/PastelBlue">
         <EditText
             android:id="@+id/height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="30dp"
             android:padding="10dp"
-            android:hint="a"
+            android:background="@color/BrightGray"
+            android:hint="height: "
             android:textColor="@color/Argent"/>
         <EditText
             android:id="@+id/weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="30dp"
             android:padding="10dp"
-            android:hint="b"
+            android:background="@color/BrightGray"
+            android:hint="weight: "
             android:textColor="@color/black"/>
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:layout_margin="10dp"
             android:backgroundTint="@color/PowderBlue"
-            android:text="submit"
-            />
+            android:text="submit" />
+        <TextView
+            android:id="@+id/bmiText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/BrightGray"
+            android:text="BMI: "
+            android:textSize="34sp" />
 
-
-
-
-    </LinearLayout>
+    </GridLayout>
+</LinearLayout>
