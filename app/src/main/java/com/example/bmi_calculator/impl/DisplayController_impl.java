@@ -89,7 +89,20 @@ public class DisplayController_impl implements DisplayController {
     }
 
     private String showComment() {
-        return null;
+        double bmi = bmiCalculate.getBmi();
+        String comment;
+
+        if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
+            return comment = "ERROR";
+        } else if (bmi < 18.5) {
+            return comment = "you are too skinny..";
+        } else if (bmi >= 18.5 && bmi < 25) {
+            return comment = "you are healthy:)";
+        } else if (bmi >= 25 && bmi < 30) {
+            return comment = "you are overweight..";
+        } else { // bmi >= 30
+            return comment = "you are obese:(";
+        }
     }
     /**
      * - method: float number format to a integer
