@@ -79,12 +79,13 @@ public class DisplayController_impl implements DisplayController {
     }
 
     private String showBMI() {
-        String buttons = buttonController.getButtons();
         double bmi = bmiCalculate.getBmi();
-        if (buttons.equals("submit")) {
-            return formatNumber(bmi);
+        String bmiFormat = formatNumber(bmi);
+        String bmiResult;
+        if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
+            return bmiResult = "ERROR";
         } else {
-            return String.valueOf(Double.POSITIVE_INFINITY);
+            return bmiResult = bmiFormat;
         }
     }
 
