@@ -26,11 +26,11 @@ public class ButtonController_impl implements ButtonController {
     }
 
     @Override
-    public void callPushButton() {
-        pushButton();
+    public void callPushSubmitButton() {
+        pushSubmitButton();
     }
 
-    private void pushButton() {
+    private void pushSubmitButton() {
         String height = inputController.getHeight();
         String weight = inputController.getWeight();
         double calcHeight = bmiCalculate.getCalcHeight();
@@ -40,8 +40,6 @@ public class ButtonController_impl implements ButtonController {
 
         if (buttons.equals("submit")) {
             bmiCalculate.callCalcBmi();
-        } else if (buttons.equals("clear")) {
-
         }
     }
 

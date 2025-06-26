@@ -6,6 +6,6 @@ public interface ButtonController {
     // setter
     void setButtons(String buttons);
     // wrap methods
-    void callPushButton();
+    void callPushSubmitButton();
 
 }
