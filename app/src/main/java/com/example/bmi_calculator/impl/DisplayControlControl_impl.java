@@ -1,5 +1,7 @@
 package com.example.bmi_calculator.impl;
 
+import android.annotation.SuppressLint;
+
 import com.example.bmi_calculator.BMICalculate;
 import com.example.bmi_calculator.DisplayControl;
 import com.example.bmi_calculator.InputController;
@@ -47,6 +49,16 @@ public class DisplayControlControl_impl implements DisplayControl {
         showBMI();
     }
 
+    /**
+     * wrap method: to use updateDisplay method.
+     * @ Param: double num
+     * - to set a input number.
+     * **/
+    @Override
+    public String callFormatNumber(double num) {
+        return formatNumber(num);
+    }
+
     private void clearDisplay() {
         this.inputController.setHeight("0");
         this.bmiCalculate.setCalcHeight(0);
@@ -60,5 +72,19 @@ public class DisplayControlControl_impl implements DisplayControl {
 
     private void showBMI() {
 
+    }
+
+    /**
+     * - method: float number format to a integer
+     * @ param: double num
+     * - set each number(storedNumber)
+     * **/
+    @SuppressLint("DefaultLocale")
+    private String formatNumber(double num) {
+        if (num == (long) num) {
+            return String.format("%d", (long) num);
+        } else {
+            return String.format("%s", num);
+        }
     }
 }

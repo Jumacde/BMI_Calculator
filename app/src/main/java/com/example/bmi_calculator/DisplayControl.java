@@ -10,4 +10,6 @@ public interface DisplayControl {
     // wrap methods
     void callClearDisplay();
     void callShowBMI();
+
+    String callFormatNumber(double num);
 }
