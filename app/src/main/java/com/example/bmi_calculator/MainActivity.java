@@ -34,16 +34,26 @@ public class MainActivity extends AppCompatActivity {
         displayControl = new DisplayControlControl_impl(bmiCalculate, buttonController, inputController);
         buttonController = new ButtonController_impl(bmiCalculate, inputController);
 
-        setUpButton(R.id.submit, "submit");
-        setUpButton(R.id.clear, "clear");
+        setUpSubmitButton(R.id.submit);
+        setUpClearButton(R.id.clear);
     }
 
-    private void setUpButton(int id, final String buttons) {
+    private void setUpSubmitButton(int id) {
         Button button = findViewById(id);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+            }
+        });
+    }
+
+    private void setUpClearButton(int id) {
+        Button button = findViewById(id);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayControl.callClearDisplay();
             }
         });
     }
