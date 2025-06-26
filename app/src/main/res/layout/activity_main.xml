@@ -28,7 +28,7 @@
                 android:text="hight"
                 android:background="@color/BrightGray"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="30dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 />
@@ -40,7 +40,7 @@
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:background="@color/BrightGray"
-                android:hint="height: "
+                android:hint="0cm "
                 android:textColor="@color/Argent"/>
         </LinearLayout>
         <LinearLayout
@@ -67,7 +67,7 @@
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:background="@color/BrightGray"
-                android:hint="weight: "
+                android:hint="0kg "
                 android:textColor="@color/black"/>
         </LinearLayout>
 
