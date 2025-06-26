@@ -25,7 +25,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="height(cm)"
+                android:text="height"
                 android:background="@color/VeryPaleYellow"
                 android:textColor="@color/black"
                 android:textSize="30dp"
@@ -39,7 +39,7 @@
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:background="@color/BrightGray"
-                android:hint="0cm "
+                android:hint="0 cm"
                 android:textColor="@color/black"/>
         </LinearLayout>
         <LinearLayout
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="weight(kg)"
+                android:text="weight"
                 android:background="@color/VeryPaleYellow"
                 android:textColor="@color/black"
                 android:textSize="30dp"
@@ -65,7 +65,7 @@
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:background="@color/BrightGray"
-                android:hint="0kg "
+                android:hint="0 kg"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
