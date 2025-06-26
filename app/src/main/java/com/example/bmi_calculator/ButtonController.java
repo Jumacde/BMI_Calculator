@@ -7,5 +7,4 @@ public interface ButtonController {
     void setButtons(String buttons);
     // wrap methods
     void callPushSubmitButton();
-
 }

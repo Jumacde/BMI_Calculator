@@ -25,7 +25,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="height"
+                android:text="height(cm)"
                 android:background="@color/VeryPaleYellow"
                 android:textColor="@color/black"
                 android:textSize="30dp"
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="weight"
+                android:text="weight(kg)"
                 android:background="@color/VeryPaleYellow"
                 android:textColor="@color/black"
                 android:textSize="30dp"
