@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 displayController.callClearDisplay();
+                editTextHeight.setText("");
+                editTextWeight.setText("");
+                textViewBMI.setText(0);
+                textViewComment.setText("");
             }
         });
     }
