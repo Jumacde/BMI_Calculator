@@ -11,9 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.bmi_calculator.impl.BMICalculate_impl;
 import com.example.bmi_calculator.impl.DisplayControlControl_impl;
 import com.example.bmi_calculator.impl.ButtonController_impl;
+import com.example.bmi_calculator.impl.InputController_impl;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textViewBMI,textViewComment;
+    private InputController inputController;
     private BMICalculate bmiCalculate;
     private DisplayControl displayControl;
     private ButtonController buttonController;
@@ -26,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         textViewBMI = findViewById(R.id.bmiText);
         textViewComment = findViewById(R.id.commentText);
-
-        bmiCalculate = new BMICalculate_impl();
+        inputController = new InputController_impl();
+        bmiCalculate = new BMICalculate_impl(inputController);
         displayControl = new DisplayControlControl_impl(bmiCalculate);
         buttonController = new ButtonController_impl(bmiCalculate);
 

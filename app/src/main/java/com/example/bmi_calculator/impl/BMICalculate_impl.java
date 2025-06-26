@@ -1,18 +1,18 @@
 package com.example.bmi_calculator.impl;
 
 import com.example.bmi_calculator.BMICalculate;
+import com.example.bmi_calculator.InputController;
 
 public class BMICalculate_impl implements BMICalculate {
-    private String inputHeight;
-    private String inputWeight;
     private double calcHeight;
     private double calcWeight;
     private double bmi;
     private boolean isInput;
 
-    public BMICalculate_impl() {
-        this.inputHeight = "0";
-        this.inputWeight = "0";
+    private final InputController inputController;
+
+    public BMICalculate_impl(InputController inputController) {
+        this.inputController = inputController;
         this.bmi = 0;
         this.calcHeight = 0;
         this.calcWeight = 0;
@@ -20,16 +20,6 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     // getter
-    @Override
-    public String getInputHeight() {
-        return inputHeight;
-    }
-
-    @Override
-    public String getInputWeight() {
-        return inputWeight;
-    }
-
     @Override
     public double getCalcHeight() {
         return calcHeight;
@@ -51,16 +41,6 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     // setter
-    @Override
-    public void setInputHeight(String inputHeight) {
-        this.inputHeight = inputHeight;
-    }
-
-    @Override
-    public void setInputWeight(String inputWeight) {
-        this.inputWeight = inputWeight;
-    }
-
     @Override
     public void setCalcHeight(double calcHeight) {
         this.calcHeight = calcHeight;
