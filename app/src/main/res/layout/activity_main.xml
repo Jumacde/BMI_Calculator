@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="30dp"
         android:background="@color/PastelBlue">
         <EditText
             android:id="@+id/height"
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content"
             android:textSize="30dp"
             android:padding="10dp"
+            android:layout_margin="10dp"
             android:background="@color/BrightGray"
             android:hint="height: "
             android:textColor="@color/Argent"/>
@@ -29,6 +31,7 @@
             android:layout_height="wrap_content"
             android:textSize="30dp"
             android:padding="10dp"
+            android:layout_margin="10dp"
             android:background="@color/BrightGray"
             android:hint="weight: "
             android:textColor="@color/black"/>
@@ -38,14 +41,23 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:layout_margin="10dp"
-            android:backgroundTint="@color/PowderBlue"
+            android:backgroundTint="@color/GreenSheen"
             android:text="submit" />
         <TextView
             android:id="@+id/bmiText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:background="@color/BrightGray"
             android:text="BMI: "
+            android:textSize="34sp" />
+        <TextView
+            android:id="@+id/commentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/BrightGray"
+            android:text="you are "
             android:textSize="34sp" />
 
     </GridLayout>
