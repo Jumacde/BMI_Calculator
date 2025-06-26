@@ -96,10 +96,11 @@ public class BMICalculate_impl implements BMICalculate {
             calcWeight = Double.parseDouble(inputWeight);
             squHeight = calcHeight * calcHeight;
 
-            result = calcWeight/squHeight;
+            result = calcWeight / squHeight;
             bmi = result * 10000;
         } else {
-            return;
+            result = Double.POSITIVE_INFINITY;
+            bmi = result;
         }
     }
 
