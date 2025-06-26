@@ -69,11 +69,15 @@ public class BMICalculate_impl implements BMICalculate {
 
     private void calcBmi(){
         setIsInput(true);
+        String height = inputController.getHeight();
+        String weight = inputController.getWeight();
+
         double squHeight;
         double result;
-        if (!inputHeight.isEmpty() && !inputWeight.isEmpty()) {
-            calcHeight = Double.parseDouble(inputHeight);
-            calcWeight = Double.parseDouble(inputWeight);
+
+        if (!height.isEmpty() && !weight.isEmpty()) {
+            calcHeight = Double.parseDouble(height);
+            calcWeight = Double.parseDouble(weight);
             squHeight = calcHeight * calcHeight;
 
             result = calcWeight / squHeight;

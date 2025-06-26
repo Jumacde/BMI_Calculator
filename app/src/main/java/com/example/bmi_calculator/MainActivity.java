@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
         textViewBMI = findViewById(R.id.bmiText);
         textViewComment = findViewById(R.id.commentText);
+
         inputController = new InputController_impl();
         bmiCalculate = new BMICalculate_impl(inputController);
         displayControl = new DisplayControlControl_impl(bmiCalculate);
-        buttonController = new ButtonController_impl(bmiCalculate);
+        buttonController = new ButtonController_impl(bmiCalculate, inputController);
 
         setUpButton(R.id.submit, "submit");
         setUpButton(R.id.clear, "clear");
