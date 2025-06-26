@@ -7,6 +7,7 @@ public interface BMICalculate {
     double getCalcHeight();
     double getCalcWeight();
     double getBmi();
+    boolean getIsInput();
 
     // setter
     void setInputHeight(String inputHeight);
@@ -14,7 +15,9 @@ public interface BMICalculate {
     void setCalcHeight(double calcHeight);
     void setCalcWeight(double calcWeight);
     void setBmi(double bmi);
+    void setIsInput(boolean isInput);
 
     // wrap methods
-    void callCalcBMI();
+    void callCalcBmi();
+    void callConvertBmi();
 }

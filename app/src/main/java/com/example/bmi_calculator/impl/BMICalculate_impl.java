@@ -8,6 +8,7 @@ public class BMICalculate_impl implements BMICalculate {
     private double calcHeight;
     private double calcWeight;
     private double bmi;
+    private boolean isInput;
 
     public BMICalculate_impl() {
         this.inputHeight = "0";
@@ -15,6 +16,7 @@ public class BMICalculate_impl implements BMICalculate {
         this.bmi = 0;
         this.calcHeight = 0;
         this.calcWeight = 0;
+        this.isInput = false;
     }
 
     // getter
@@ -43,6 +45,11 @@ public class BMICalculate_impl implements BMICalculate {
         return bmi;
     }
 
+    @Override
+    public boolean getIsInput() {
+        return isInput;
+    }
+
     // setter
     @Override
     public void setInputHeight(String inputHeight) {
@@ -56,12 +63,12 @@ public class BMICalculate_impl implements BMICalculate {
 
     @Override
     public void setCalcHeight(double calcHeight) {
-        this.calcHeight = Double.parseDouble(inputHeight);
+        this.calcHeight = calcHeight;
     }
 
     @Override
     public void setCalcWeight(double calcWeight) {
-        this.calcWeight = Double.parseDouble(inputWeight);
+        this.calcWeight = calcWeight;
     }
 
     @Override
@@ -69,13 +76,32 @@ public class BMICalculate_impl implements BMICalculate {
         this.bmi = bmi;
     }
 
-    // wrap method
     @Override
-    public void callCalcBMI() {
-        calcBMI();
+    public void setIsInput(boolean isInput) {
+        this.isInput = isInput;
     }
 
-    private void calcBMI(){
+    // wrap methods
+    @Override
+    public void callCalcBmi() {
+        calcBmi();
+    }
+
+    @Override
+    public void callConvertBmi() {
+        convertBmi();
+    }
+
+    private void calcBmi(){
+        setIsInput(true);
+        if (!inputHeight.isEmpty() && !inputWeight.isEmpty()) {
+            calcHeight = Double.parseDouble(inputHeight);
+            calcWeight = Double.parseDouble(inputWeight);
+        }
+    }
+
+    private void convertBmi() {
 
     }
+
 }
