@@ -107,14 +107,11 @@ public class DisplayController_impl implements DisplayController {
     /**
      * - method: float number format to a integer
      * @ param: double num
-     * - set each number(storedNumber)
+     * - set each number
      * **/
     @SuppressLint("DefaultLocale")
     private String formatNumber(double num) {
-        if (num == (long) num) {
-            return String.format("%d", (long) num);
-        } else {
-            return String.format("%s", num);
-        }
+        //display up to two decimal places
+        return String.format("%.2f", num);
     }
 }
