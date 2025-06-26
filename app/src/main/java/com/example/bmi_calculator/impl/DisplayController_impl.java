@@ -4,17 +4,17 @@ import android.annotation.SuppressLint;
 
 import com.example.bmi_calculator.BMICalculate;
 import com.example.bmi_calculator.ButtonController;
-import com.example.bmi_calculator.DisplayControl;
+import com.example.bmi_calculator.DisplayController;
 import com.example.bmi_calculator.InputController;
 
-public class DisplayControlControl_impl implements DisplayControl {
+public class DisplayController_impl implements DisplayController {
     private String bmiDisplay;
     private String commentDisplay;
     private final BMICalculate bmiCalculate;
     private final ButtonController buttonController;
     private final InputController inputController;
 
-    public DisplayControlControl_impl(BMICalculate bmiCalculate, ButtonController buttonController, InputController inputController) {
+    public DisplayController_impl(BMICalculate bmiCalculate, ButtonController buttonController, InputController inputController) {
         this.bmiCalculate = bmiCalculate;
         this.buttonController = buttonController;
         this.inputController = inputController;
@@ -52,6 +52,11 @@ public class DisplayControlControl_impl implements DisplayControl {
         return showBMI();
     }
 
+    @Override
+    public String callShowComment() {
+        return showComment();
+    }
+
     /**
      * wrap method: to use updateDisplay method.
      * @ Param: double num
@@ -83,6 +88,9 @@ public class DisplayControlControl_impl implements DisplayControl {
         }
     }
 
+    private String showComment() {
+        return null;
+    }
     /**
      * - method: float number format to a integer
      * @ param: double num

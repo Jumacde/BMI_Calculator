@@ -1,6 +1,6 @@
 package com.example.bmi_calculator;
 
-public interface DisplayControl {
+public interface DisplayController {
     // getter
     String getBmiDisplay();
     String getCommentDisplay();
@@ -10,6 +10,7 @@ public interface DisplayControl {
     // wrap methods
     void callClearDisplay();
     String callShowBMI();
+    String callShowComment();
 
     String callFormatNumber(double num);
 }

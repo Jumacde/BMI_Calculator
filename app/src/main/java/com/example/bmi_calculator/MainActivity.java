@@ -10,7 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bmi_calculator.impl.BMICalculate_impl;
-import com.example.bmi_calculator.impl.DisplayControlControl_impl;
+import com.example.bmi_calculator.impl.DisplayController_impl;
 import com.example.bmi_calculator.impl.ButtonController_impl;
 import com.example.bmi_calculator.impl.InputController_impl;
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextHeight, editTextWeight;
     private InputController inputController;
     private BMICalculate bmiCalculate;
-    private DisplayControl displayControl;
+    private DisplayController displayController;
     private ButtonController buttonController;
 
     @Override
@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         inputController = new InputController_impl();
         bmiCalculate = new BMICalculate_impl(inputController);
-        displayControl = new DisplayControlControl_impl(bmiCalculate, buttonController, inputController);
         buttonController = new ButtonController_impl(bmiCalculate, inputController);
+        displayController = new DisplayController_impl(bmiCalculate, buttonController, inputController);
 
         setUpSubmitButton(R.id.submit);
         setUpClearButton(R.id.clear);
@@ -47,7 +47,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonController.callPushSubmitButton();
+                // get both editText and convert to String.
+                inputController.setHeight(editTextHeight.getText().toString());
+                inputController.setWeight(editTextWeight.getText().toString());
+                buttonController.callPushSubmitButton(); // calculate BMI.
+                textViewBMI.setText(displayController.callShowBMI()); // get the BMI result.
+                textViewComment.setText(displayController.callShowComment());
             }
         });
     }
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayControl.callClearDisplay();
+                displayController.callClearDisplay();
             }
         });
     }
