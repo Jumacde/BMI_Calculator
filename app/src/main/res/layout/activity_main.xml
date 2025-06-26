@@ -21,12 +21,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="0dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="height"
-                android:background="@color/BrightGray"
+                android:background="@color/VeryPaleYellow"
                 android:textColor="@color/black"
                 android:textSize="30dp"
                 android:padding="10dp"
@@ -47,12 +47,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="0dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="weight"
-                android:background="@color/BrightGray"
+                android:background="@color/VeryPaleYellow"
                 android:textColor="@color/black"
                 android:textSize="30dp"
                 android:padding="10dp"
@@ -73,11 +73,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="10dp">
+            android:layout_gravity="center_vertical">
 
         <Button
             android:id="@+id/submit"
+            android:onClick="pressSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -87,6 +87,7 @@
             android:text="submit" />
         <Button
             android:id="@+id/clear"
+            android:onClick="pressClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -99,36 +100,45 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="10dp">
-            <TextView
-                android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="0dp"
+            android:layout_margin="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BMI"
-                android:background="@color/BrightGray"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:padding="10dp"
-                android:layout_margin="10dp"/>
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BMI"
+                    android:background="@color/VeryPaleYellow"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:id="@+id/bmiText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/BrightGray"
+                    android:text="0 "
+                    android:textSize="34sp"/>
+            </LinearLayout>
             <TextView
-                android:id="@+id/bmiText"
+                android:id="@+id/commentText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:background="@color/BrightGray"
-                android:text="0 "
-                android:textSize="34sp"/>
+                android:text="you are "
+                android:textSize="34sp" />
         </LinearLayout>
-        <TextView
-            android:id="@+id/commentText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:background="@color/BrightGray"
-            android:text="you are "
-            android:textSize="34sp" />
     </LinearLayout>
 </LinearLayout>
