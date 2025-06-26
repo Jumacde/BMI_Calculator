@@ -1,4 +1,4 @@
 package com.example.bmi_calculator;
 
-public interface CommentDisplay {
+public interface Display {
 }
