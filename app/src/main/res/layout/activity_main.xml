@@ -16,26 +16,68 @@
         android:padding="30dp"
         android:layout_margin="30dp"
         android:background="@color/MaastrichtBlue">
-        <EditText
-            android:id="@+id/height"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:background="@color/BrightGray"
-            android:hint="height: "
-            android:textColor="@color/Argent"/>
-        <EditText
-            android:id="@+id/weight"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hight"
+                android:background="@color/BrightGray"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                />
+            <EditText
+                android:id="@+id/height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@color/BrightGray"
+                android:hint="height: "
+                android:textColor="@color/Argent"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:background="@color/BrightGray"
-            android:hint="weight: "
-            android:textColor="@color/black"/>
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="weight"
+                android:background="@color/BrightGray"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                />
+            <EditText
+                android:id="@+id/weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@color/BrightGray"
+                android:hint="weight: "
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp">
+
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
@@ -45,7 +87,6 @@
             android:backgroundTint="@color/RipeMango"
             android:textSize="20dp"
             android:text="submit" />
-
         <Button
             android:id="@+id/clear"
             android:layout_width="wrap_content"
@@ -55,6 +96,7 @@
             android:text="clear"
             android:textColor="@color/black"
             android:textSize="20dp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/bmiText"
