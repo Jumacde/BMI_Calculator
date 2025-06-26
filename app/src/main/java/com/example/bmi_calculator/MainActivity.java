@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         inputController = new InputController_impl();
         bmiCalculate = new BMICalculate_impl(inputController);
-        displayControl = new DisplayControlControl_impl(bmiCalculate);
+        displayControl = new DisplayControlControl_impl(bmiCalculate, inputController);
         buttonController = new ButtonController_impl(bmiCalculate, inputController);
 
         setUpButton(R.id.submit, "submit");
