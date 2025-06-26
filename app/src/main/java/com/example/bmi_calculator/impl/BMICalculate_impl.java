@@ -69,8 +69,13 @@ public class BMICalculate_impl implements BMICalculate {
         this.bmi = bmi;
     }
 
+    // wrap method
     @Override
     public void callCalcBMI() {
+        calcBMI();
+    }
+
+    private void calcBMI(){
 
     }
 }
