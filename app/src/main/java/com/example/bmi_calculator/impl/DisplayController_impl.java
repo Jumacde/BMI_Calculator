@@ -68,9 +68,9 @@ public class DisplayController_impl implements DisplayController {
     }
 
     private void clearDisplay() {
-        this.inputController.setHeight("0");
+        this.inputController.setHeight("");
         this.bmiCalculate.setCalcHeight(0);
-        this.inputController.setWeight("0");
+        this.inputController.setWeight("");
         this.bmiCalculate.setCalcWeight(0);
         this.bmiCalculate.setBmi(0);
         this.bmiCalculate.setIsInput(false);
