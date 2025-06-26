@@ -40,7 +40,7 @@
                 android:layout_margin="10dp"
                 android:background="@color/BrightGray"
                 android:hint="0cm "
-                android:textColor="@color/Argent"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
