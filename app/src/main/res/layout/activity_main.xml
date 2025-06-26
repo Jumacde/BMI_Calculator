@@ -9,7 +9,7 @@
     android:layout_gravity="center_vertical"
     android:background="@color/MaastrichtBlue"
     tools:context=".MainActivity">
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -63,5 +63,5 @@
             android:text="you are "
             android:textSize="34sp" />
 
-    </GridLayout>
+    </LinearLayout>
 </LinearLayout>
