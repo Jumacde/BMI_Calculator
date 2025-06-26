@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
         inputController = new InputController_impl();
         buttonController = new ButtonController_impl(bmiCalculate);
 
-        setUpSubmitButton(R.id.submit);
-        setUpClearButton(R.id.clear);
+        setUpButton(R.id.submit, "submit");
+        setUpButton(R.id.clear, "clear");
     }
 
-    private void setUpSubmitButton(int id) {
+    private void setUpButton(int id, final String buttons) {
         Button button = findViewById(id);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,13 +48,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setUpClearButton(int id) {
-        Button button = findViewById(id);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-    }
 }
