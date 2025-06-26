@@ -12,12 +12,14 @@ import com.example.bmi_calculator.impl.BMICalculate_impl;
 import com.example.bmi_calculator.impl.BMIDisplay_impl;
 import com.example.bmi_calculator.impl.ButtonController_impl;
 import com.example.bmi_calculator.impl.CommentDisplay_impl;
+import com.example.bmi_calculator.impl.InputController_impl;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textViewBMI,textViewComment;
     private BMICalculate bmiCalculate;
     private BMIDisplay bmiDisplay;
     private CommentDisplay commentDisplay;
+    private InputController inputController;
     private ButtonController buttonController;
 
     @Override
@@ -32,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         bmiCalculate = new BMICalculate_impl();
         bmiDisplay = new BMIDisplay_impl();
         commentDisplay = new CommentDisplay_impl();
-        buttonController = new ButtonController_impl();
+        inputController = new InputController_impl();
+        buttonController = new ButtonController_impl(bmiCalculate);
 
         setUpSubmitButton(R.id.submit);
         setUpClearButton(R.id.clear);
