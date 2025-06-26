@@ -3,6 +3,7 @@ package com.example.bmi_calculator.impl;
 import android.annotation.SuppressLint;
 
 import com.example.bmi_calculator.BMICalculate;
+import com.example.bmi_calculator.ButtonController;
 import com.example.bmi_calculator.DisplayControl;
 import com.example.bmi_calculator.InputController;
 
@@ -10,10 +11,12 @@ public class DisplayControlControl_impl implements DisplayControl {
     private String bmiDisplay;
     private String commentDisplay;
     private final BMICalculate bmiCalculate;
+    private final ButtonController buttonController;
     private final InputController inputController;
 
-    public DisplayControlControl_impl(BMICalculate bmiCalculate, InputController inputController) {
+    public DisplayControlControl_impl(BMICalculate bmiCalculate, ButtonController buttonController, InputController inputController) {
         this.bmiCalculate = bmiCalculate;
+        this.buttonController = buttonController;
         this.inputController = inputController;
         callClearDisplay();
     }
@@ -45,8 +48,8 @@ public class DisplayControlControl_impl implements DisplayControl {
     }
 
     @Override
-    public void callShowBMI() {
-        showBMI();
+    public String callShowBMI() {
+        return showBMI();
     }
 
     /**
@@ -70,8 +73,14 @@ public class DisplayControlControl_impl implements DisplayControl {
         this.commentDisplay = "0";
     }
 
-    private void showBMI() {
-
+    private String showBMI() {
+        String buttons = buttonController.getButtons();
+        double bmi = bmiCalculate.getBmi();
+        if (buttons.equals("submit")) {
+            return formatNumber(bmi);
+        } else {
+            return null;
+        }
     }
 
     /**

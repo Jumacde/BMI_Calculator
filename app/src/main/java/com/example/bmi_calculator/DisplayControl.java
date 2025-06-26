@@ -9,7 +9,7 @@ public interface DisplayControl {
     void setCommentDisplay(String commentDisplay);
     // wrap methods
     void callClearDisplay();
-    void callShowBMI();
+    String callShowBMI();
 
     String callFormatNumber(double num);
 }
