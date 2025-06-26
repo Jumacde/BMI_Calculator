@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 displayController.callClearDisplay();
                 editTextHeight.setText("");
                 editTextWeight.setText("");
-                textViewBMI.setText(0);
+                textViewBMI.setText("");
                 textViewComment.setText("");
             }
         });
