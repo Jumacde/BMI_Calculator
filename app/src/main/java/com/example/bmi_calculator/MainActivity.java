@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         setUpSubmitButton(R.id.submit);
         setUpClearButton(R.id.clear);
         // TextWatcher: fix to show always cm and kg
+        setUpTextWatcher(editTextHeight, "cm");
+        setUpTextWatcher(editTextWeight, "kg");
+        editTextHeight.setText("0cm");
+        editTextWeight.setText("0kg");
 
     }
 

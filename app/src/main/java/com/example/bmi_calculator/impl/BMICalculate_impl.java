@@ -96,7 +96,7 @@ public class BMICalculate_impl implements BMICalculate {
                     return; // not calculate.
                 }
                 // if no problem, calculate BMI.
-                squHeight = calcHeight * calcWeight;
+                squHeight = Math.pow(calcHeight, 2); // calcHeight^2
                 result = calcWeight / squHeight;
                 bmi = result * 10000;
             } catch (NumberFormatException  nFe) {
