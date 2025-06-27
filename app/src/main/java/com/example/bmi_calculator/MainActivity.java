@@ -2,6 +2,8 @@ package com.example.bmi_calculator;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         setUpSubmitButton(R.id.submit);
         setUpClearButton(R.id.clear);
+        // TextWatcher: fix to show always cm and kg
+
     }
 
     private void setUpSubmitButton(int id) {
@@ -76,6 +80,54 @@ public class MainActivity extends AppCompatActivity {
                 textViewComment.setText("");
             }
         });
+    }
+
+    /**
+     * method: TextWatcher: fix to show always a unit (cm and kg)
+     * @ Param: final EditText editText
+     * @ Param: final String unit
+     *      - cm or kg
+     * **/
+    private void setUpTextWatcher(final EditText editText, final String unit) {
+        editText.addTextChangedListener(new TextWatcher() {
+            private boolean isUpdate = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // nothing to do here
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // nothing to do here
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (isUpdate) {
+                    return; // avoid infinite loop.
+                }
+                isUpdate = true;
+                String text = editable.toString();
+                // if already a unit(cm or kg) is there, nothing to do.
+                if (text.endsWith(unit)) {
+                    isUpdate = false;
+                    return;
+                }
+                // puck up a number and remove units.
+                String pickUpNumber = text.replaceAll("[^\\d.]", "");
+                // if no number is there, add a unit.
+                if (!pickUpNumber.isEmpty()) {
+                    String textWithUnit = pickUpNumber + unit;
+                    editText.setText(textWithUnit);
+                    editText.setSelection(pickUpNumber.length()); // move the cursor to just after the number
+                } else if (text.isEmpty()) {
+                    editText.setText("0" + unit); // initialize the number("0").
+                    editText.setSelection(1); // move the cursor to just after initialized number("0").
+                }
+                isUpdate = false;
+            }
+        });
+
     }
 
 }
