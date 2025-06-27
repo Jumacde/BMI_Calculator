@@ -23,7 +23,7 @@
             android:layout_gravity="center_vertical"
             android:layout_margin="0dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="height"
                 android:background="@color/VeryPaleYellow"
@@ -116,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:text="BMI"
                     android:background="@color/VeryPaleYellow"
-                    android:textColor="@color/MidnightGreen"
+                    android:textColor="@color/black"
                     android:textSize="30dp"
                     android:padding="10dp"
                     android:layout_margin="10dp"/>
