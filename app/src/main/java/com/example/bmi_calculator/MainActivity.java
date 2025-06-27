@@ -52,6 +52,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * method: set up the submit button function.
+     * @ Param: int id => to search id from xml.
+     *  this button sends number part of height and weight.
+     *  inputController -> inputController_impl.
+     *  buttonController -> buttonController_impl -> callPushSubmitButton -> pushSubmitButton -> bmiCalculate from BMICalculate_impl
+     *      1. get number part of height and weight from inputController.
+     *      2. calculate BMI via callPushSubmitButton from buttonController.
+     *      3. set BMI result and comment on the textView(display).
+     *      4. heide the keyboard after push the submit-button.
+     * **/
     private void setUpSubmitButton(int id) {
         Button button = findViewById(id);
         button.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +82,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * method: set up the clear button function.
+     * @ Param: int id => to search id from xml.
+     *  execute "clearDisplay" method by wrap method from displayController_impl class via the interface class "displayController"
+     *  displayController -> displayController_impl-> callClearDisplay(wrap method) -> clearDisplay.
+     *      1. clear(initialize) inputted number part of height and weight.
+     *      2. clear(initialize) BMI calculate result.
+     *      3. clear(initialize) BMI comment.
+     * **/
     private void setUpClearButton(int id) {
         Button button = findViewById(id);
         button.setOnClickListener(new View.OnClickListener() {
