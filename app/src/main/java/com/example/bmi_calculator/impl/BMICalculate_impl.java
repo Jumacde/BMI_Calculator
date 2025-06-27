@@ -67,6 +67,10 @@ public class BMICalculate_impl implements BMICalculate {
         calcBmi();
     }
 
+    /**
+     * method: calculate BMI
+     * 1.
+     * **/
     private void calcBmi(){
         setIsInput(true);
         String height = inputController.getHeight();
@@ -75,17 +79,31 @@ public class BMICalculate_impl implements BMICalculate {
         double squHeight;
         double result;
 
-        if (!height.isEmpty() && !weight.isEmpty()) {
-            calcHeight = Double.parseDouble(height);
-            calcWeight = Double.parseDouble(weight);
-            squHeight = calcHeight * calcHeight;
+        String cleanHeight = height.replaceAll("[^\\d.]", "");
+        String cleanWeight = weight.replaceAll("[^\\d.]", "");
 
-            result = calcWeight / squHeight;
-            bmi = result * 10000;
+        if (!cleanHeight.isEmpty() && ! cleanWeight.isEmpty()) {
+            try {
+                calcHeight = Double.parseDouble(cleanHeight);
+                calcWeight = Double.parseDouble(cleanWeight);
+                // if the inputted height or weight is 0, shows "error".
+                if (calcHeight == 0 || calcWeight == 0) {
+                    result = Double.POSITIVE_INFINITY;
+                    bmi = result;
+                    return; // not calculate.
+                }
+                squHeight = calcHeight * calcWeight;
+                result = calcWeight / squHeight;
+                bmi = result * 10000;
+
+            } catch (NumberFormatException  nFe) {
+                bmi = Double.NaN; // not a number.
+            }
+
         } else {
-            result = Double.POSITIVE_INFINITY;
-            bmi = result;
+            bmi = Double.NaN; // not a number.
         }
+
     }
 
 }
