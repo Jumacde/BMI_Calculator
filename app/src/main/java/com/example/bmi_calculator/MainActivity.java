@@ -4,7 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,9 +49,24 @@ public class MainActivity extends AppCompatActivity {
         // TextWatcher: fix to show always cm and kg
         setUpTextWatcher(editTextHeight, "cm");
         setUpTextWatcher(editTextWeight, "kg");
+        // set units on the display.
         editTextHeight.setText("0cm");
         editTextWeight.setText("0kg");
-
+        // cursor moves on the weight textview after input finish on the height and push "enter".
+        editTextHeight.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_NEXT || i == EditorInfo.IME_ACTION_DONE
+                        || (keyEvent != null && keyEvent.getKeyCode()
+                        == keyEvent.KEYCODE_ENTER && keyEvent.getAction()
+                        == keyEvent.ACTION_DOWN)) {
+                    // move cursor(focus) on the weight text view.
+                    editTextWeight.requestFocus();
+                    return true; // successfully execute
+                }
+                return false; // not execute
+            }
+        });
     }
 
     /**
