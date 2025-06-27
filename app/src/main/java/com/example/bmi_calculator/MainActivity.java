@@ -132,17 +132,23 @@ public class MainActivity extends AppCompatActivity {
                 isUpdate = true;
                 String text = editable.toString();
                 // if already a unit(cm or kg) is there, nothing to do.
-                if (text.endsWith(unit)) {
-                    isUpdate = false;
-                    return;
+                if (text.endsWith(unit) && text.length() > text.length() && text.substring(0, text.length() - unit.length()).matches(".*\\d.*")) {
+                    if (editText.getSelectionEnd() == text.length() - unit.length()) {
+                        isUpdate = false;
+                        return;
+                    }
                 }
-                // puck up a number and remove units.
-                String pickUpNumber = text.replaceAll("[^\\d.]", "");
+                // puck up a number and remove units(cm and kg).
+                String number = text.replaceAll("[^\\d.]", "");
+                // remove 0 if user input any number.
+                if (number.length() > 1 && number.startsWith("0") && !number.startsWith("0.")) {
+                    number = number.substring(1);
+                }
                 // if no number is there, add a unit.
-                if (!pickUpNumber.isEmpty()) {
-                    String textWithUnit = pickUpNumber + unit;
+                if (!number.isEmpty()) {
+                    String textWithUnit = number + unit;
                     editText.setText(textWithUnit);
-                    editText.setSelection(pickUpNumber.length()); // move the cursor to just after the number
+                    editText.setSelection(number.length()); // move the cursor to just after the number
                 } else if (text.isEmpty()) {
                     editText.setText("0" + unit); // initialize the number("0").
                     editText.setSelection(1); // move the cursor to just after initialized number("0").
