@@ -69,7 +69,9 @@ public class BMICalculate_impl implements BMICalculate {
 
     /**
      * method: calculate BMI
-     * 1.
+     * 1. from inputted number remove units(cm or kg) and pick up only a number(height and weight).
+     *      ex: 180 cm and 90kg => 180 and 90.
+     * 2. calculate BMI.
      * **/
     private void calcBmi(){
         setIsInput(true);
@@ -78,11 +80,12 @@ public class BMICalculate_impl implements BMICalculate {
 
         double squHeight;
         double result;
-
+        // pick up only number parts.
         String cleanHeight = height.replaceAll("[^\\d.]", "");
         String cleanWeight = weight.replaceAll("[^\\d.]", "");
 
         if (!cleanHeight.isEmpty() && ! cleanWeight.isEmpty()) {
+            // try catch: avoid the number convert-error.
             try {
                 calcHeight = Double.parseDouble(cleanHeight);
                 calcWeight = Double.parseDouble(cleanWeight);
@@ -92,10 +95,10 @@ public class BMICalculate_impl implements BMICalculate {
                     bmi = result;
                     return; // not calculate.
                 }
+                // if no problem, calculate BMI.
                 squHeight = calcHeight * calcWeight;
                 result = calcWeight / squHeight;
                 bmi = result * 10000;
-
             } catch (NumberFormatException  nFe) {
                 bmi = Double.NaN; // not a number.
             }
