@@ -1,5 +1,6 @@
 package com.example.bmi_calculator;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
      *      2. calculate BMI via callPushSubmitButton from buttonController.
      *      3. set BMI result and comment on the textView(display).
      *      4. heide the keyboard after push the submit-button.
+     *      5. error message shows on a new message-window.
      * **/
     private void setUpSubmitButton(int id) {
         Button button = findViewById(id);
@@ -97,6 +99,24 @@ public class MainActivity extends AppCompatActivity {
                 inputController.setHeight(editTextHeight.getText().toString());
                 inputController.setWeight(editTextWeight.getText().toString());
                 buttonController.callPushSubmitButton(); // calculate BMI.
+
+                // set up error message on a new message window.
+                String bmiResultText = displayController.callShowBMI();
+                String commentText = displayController.getCommentDisplay();
+                if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText)) {
+                    // show error dialog
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Error")
+                            .setMessage("failed height or weight \n please input your height and weight again.")
+                            .setPositiveButton("OK", (dialog,whitch)-> {
+                                // nothing to do what does after pushing ok button.
+                            }).show();
+                    textViewBMI.setText(0); // initialise text
+                    textViewComment.setText("comment"); // initialise text
+                } else {
+                    textViewBMI.setText(bmiResultText); // get the BMI result.
+                    textViewComment.setText(commentText);
+                }
                 textViewBMI.setText(displayController.callShowBMI()); // get the BMI result.
                 textViewComment.setText(displayController.callShowComment());
                 // hide the keyboard
