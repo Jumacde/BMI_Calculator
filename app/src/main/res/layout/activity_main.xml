@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:padding="30dp"
         android:layout_margin="30dp"
-        android:background="@color/MaastrichtBlue">
+        android:background="@color/YankeesBlue">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

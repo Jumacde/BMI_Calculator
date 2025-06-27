@@ -83,7 +83,7 @@ public class DisplayController_impl implements DisplayController {
         String bmiFormat = formatNumber(bmi);
         String bmiResult;
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
-            return bmiResult = "ERROR";
+            return bmiResult = "ERROR_VALUE";
         } else {
             return bmiResult = bmiFormat;
         }
@@ -94,7 +94,7 @@ public class DisplayController_impl implements DisplayController {
         String comment;
 
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
-            return comment = "ERROR";
+            return comment = "ERROR_VALUE";
         } else if (bmi < 18.5) {
             return comment = "you are too skinny..";
         } else if (bmi >= 18.5 && bmi < 25) {

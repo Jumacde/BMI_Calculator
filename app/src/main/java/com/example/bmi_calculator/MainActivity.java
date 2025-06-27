@@ -19,7 +19,15 @@ import com.example.bmi_calculator.impl.BMICalculate_impl;
 import com.example.bmi_calculator.impl.DisplayController_impl;
 import com.example.bmi_calculator.impl.ButtonController_impl;
 import com.example.bmi_calculator.impl.InputController_impl;
-
+/**
+ * this class is able to execute the application and control UI methods.
+ * UI methods:
+ * 1. setUpSubmitButton: set up the submit button function.
+ *  - execute BMI calculation.
+ * 2. setUpClearButton: set up the clear button function.
+ *  - reset display.
+ * 3.setUpTextWatcher: set to show units(cm and kg) on the input console.
+ * **/
 public class MainActivity extends AppCompatActivity {
     private TextView textViewBMI,textViewComment;
     private EditText editTextHeight, editTextWeight;
