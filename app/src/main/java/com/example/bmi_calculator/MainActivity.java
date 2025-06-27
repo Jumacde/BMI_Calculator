@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // set up error message on a new message window.
                 String bmiResultText = displayController.callShowBMI();
-                String commentText = displayController.getCommentDisplay();
+                String commentText = displayController.callShowComment();
                 if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText)) {
                     // show error dialog
                     new AlertDialog.Builder(MainActivity.this)
@@ -117,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     textViewBMI.setText(bmiResultText); // get the BMI result.
                     textViewComment.setText(commentText);
                 }
-                textViewBMI.setText(displayController.callShowBMI()); // get the BMI result.
-                textViewComment.setText(displayController.callShowComment());
+
                 // hide the keyboard
                 InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 if(inputMethodManager != null) {
