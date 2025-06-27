@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:layout_gravity="center_vertical"
-    android:background="@color/Alabaster"
+    android:background="@color/BrightGray"
     tools:context=".MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="height"
                 android:background="@color/VeryPaleYellow"
-                android:textColor="@color/black"
+                android:textColor="@color/MidnightGreen"
                 android:textSize="30dp"
                 android:padding="10dp"
                 android:layout_margin="10dp"/>
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="weight"
                 android:background="@color/VeryPaleYellow"
-                android:textColor="@color/black"
+                android:textColor="@color/MidnightGreen"
                 android:textSize="30dp"
                 android:padding="10dp"
                 android:layout_margin="10dp"/>
@@ -116,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:text="BMI"
                     android:background="@color/VeryPaleYellow"
-                    android:textColor="@color/black"
+                    android:textColor="@color/MidnightGreen"
                     android:textSize="30dp"
                     android:padding="10dp"
                     android:layout_margin="10dp"/>
