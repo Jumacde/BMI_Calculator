@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                             .setPositiveButton("OK", (dialog,whitch)-> {
                                 // nothing to do what does after pushing ok button.
                             }).show();
-                    textViewBMI.setText(0); // initialise text
+                    textViewBMI.setText("0"); // initialise text
                     textViewComment.setText("comment"); // initialise text
                 } else {
                     textViewBMI.setText(bmiResultText); // get the BMI result.
