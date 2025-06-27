@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                                 // nothing to do what does after pushing ok button.
                             }).show();
                     textViewBMI.setText("0"); // initialise text
-                    textViewComment.setText("comment"); // initialise text
+                    textViewComment.setText(""); // initialise text
                 } else {
                     textViewBMI.setText(bmiResultText); // get the BMI result.
                     textViewComment.setText(commentText);
@@ -144,8 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 displayController.callClearDisplay();
                 editTextHeight.setText("");
                 editTextWeight.setText("");
-                textViewBMI.setText("");
-                textViewComment.setText("");
+                textViewBMI.setText("0"); // initialise text
+                textViewComment.setText(""); // initialise text
             }
         });
     }
