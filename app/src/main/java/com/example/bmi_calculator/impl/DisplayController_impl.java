@@ -57,6 +57,11 @@ public class DisplayController_impl implements DisplayController {
         return showComment();
     }
 
+    @Override
+    public String callShowCommentAsian() {
+        return showCommentAsian();
+    }
+
     /**
      * wrap method: to use updateDisplay method.
      * @ Param: double num
@@ -104,9 +109,12 @@ public class DisplayController_impl implements DisplayController {
         } else { // bmi >= 30
             return comment = "you are obese:(";
         }
+    }
 
-        // asian case
-        /*
+    private String showCommentAsian() {
+        double bmi = bmiCalculate.getBmi();
+        String comment;
+        // normal case
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
             return comment = "ERROR_VALUE";
         } else if (bmi < 17.5) {
@@ -118,8 +126,6 @@ public class DisplayController_impl implements DisplayController {
         } else { // bmi >= 28
             return comment = "you are obese:(";
         }
-        * */
-
     }
     /**
      * - method: float number format to a integer

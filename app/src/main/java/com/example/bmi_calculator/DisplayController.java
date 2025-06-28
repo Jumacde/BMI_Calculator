@@ -11,6 +11,7 @@ public interface DisplayController {
     void callClearDisplay();
     String callShowBMI();
     String callShowComment();
+    String callShowCommentAsian();
 
     String callFormatNumber(double num);
 }

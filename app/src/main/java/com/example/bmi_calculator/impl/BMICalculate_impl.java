@@ -106,7 +106,7 @@ public class BMICalculate_impl implements BMICalculate {
         } else {
             bmi = Double.NaN; // not a number.
         }
-
     }
+
 
 }
