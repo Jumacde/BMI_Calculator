@@ -9,13 +9,33 @@
     android:layout_gravity="center_vertical"
     android:background="@color/BrightGray"
     tools:context=".MainActivity">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="30dp"
-        android:layout_margin="30dp"
-        android:background="@color/YankeesBlue">
+        android:layout_gravity="top|center_horizontal"
+        android:layout_margin="10sp">
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="asian"
+            android:textSize="20dp"
+            android:textColor="@color/YankeesBlue"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30dp"
+
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/YankeesBlue">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,6 +161,7 @@
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="34sp" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
