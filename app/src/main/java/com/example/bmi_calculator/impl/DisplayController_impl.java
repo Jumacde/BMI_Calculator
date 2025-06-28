@@ -92,7 +92,7 @@ public class DisplayController_impl implements DisplayController {
     private String showComment() {
         double bmi = bmiCalculate.getBmi();
         String comment;
-
+        // normal case
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
             return comment = "ERROR_VALUE";
         } else if (bmi < 18.5) {
@@ -104,6 +104,22 @@ public class DisplayController_impl implements DisplayController {
         } else { // bmi >= 30
             return comment = "you are obese:(";
         }
+
+        // asian case
+        /*
+        if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
+            return comment = "ERROR_VALUE";
+        } else if (bmi < 17.5) {
+            return comment = "you are too skinny..";
+        } else if (bmi >= 17.5 && bmi < 23) {
+            return comment = "you are healthy:)";
+        } else if (bmi >= 23 && bmi < 28) {
+            return comment = "you are overweight..";
+        } else { // bmi >= 28
+            return comment = "you are obese:(";
+        }
+        * */
+
     }
     /**
      * - method: float number format to a integer
