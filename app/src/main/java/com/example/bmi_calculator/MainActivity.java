@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     // show error dialog
                     new AlertDialog.Builder(MainActivity.this)
                             .setTitle("Error")
-                            .setMessage("failed height or weight \n please input your height and weight again.")
+                            .setMessage("failed height or weight.\nplease input your height and weight again.")
                             .setPositiveButton("OK", (dialog,whitch)-> {
                                 // nothing to do what does after pushing ok button.
                             }).show();
