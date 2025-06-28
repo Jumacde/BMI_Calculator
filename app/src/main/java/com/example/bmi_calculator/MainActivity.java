@@ -90,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
      *  buttonController -> buttonController_impl -> callPushSubmitButton -> pushSubmitButton -> bmiCalculate from BMICalculate_impl
      *      1. get number part of height and weight from inputController.
      *      2. calculate BMI via callPushSubmitButton from buttonController.
-     *      3. set BMI result and comment on the textView(display).
+     *      3.a. set BMI result and comment on the textView(display).
+     *      3.b. set comment for asian if you check the checkBox.
      *      4. heide the keyboard after push the submit-button.
      *      5. error message shows on a new message-window.
      * **/
@@ -107,6 +108,13 @@ public class MainActivity extends AppCompatActivity {
                 // set up error message on a new message window.
                 String bmiResultText = displayController.callShowBMI();
                 String commentText = displayController.callShowComment();
+                // comment for asian.
+                if (aCheckBox.isChecked()) {
+                    commentText = displayController.callShowCommentAsian();
+                } else {
+                    commentText = displayController.callShowComment();
+                }
+
                 if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText)) {
                     // show error dialog
                     new AlertDialog.Builder(MainActivity.this)
