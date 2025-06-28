@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ import com.example.bmi_calculator.impl.InputController_impl;
 public class MainActivity extends AppCompatActivity {
     private TextView textViewBMI,textViewComment;
     private EditText editTextHeight, editTextWeight;
+    private CheckBox aCheckBox;
     private InputController inputController;
     private BMICalculate bmiCalculate;
     private DisplayController displayController;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         textViewComment = findViewById(R.id.commentText);
         editTextHeight = (EditText) findViewById(R.id.height);
         editTextWeight = (EditText) findViewById(R.id.weight);
+        aCheckBox = findViewById(R.id.checkbox);
 
         inputController = new InputController_impl();
         bmiCalculate = new BMICalculate_impl(inputController);
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         // set units on the display.
         editTextHeight.setText("0cm");
         editTextWeight.setText("0kg");
+
         // cursor moves on the weight textview after input finish on the height and push "enter".
         editTextHeight.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
