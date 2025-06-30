@@ -121,11 +121,11 @@ public class BMICalculate_impl implements BMICalculate {
      *   2. calculate goal bmi from this value.
      * **/
     private void calcGoalBmi() {
-        double goalBMI;
+        double goalBmi;
         if (bmi < 18.5) { // if bmi is under 18.5
-            goalBMI = 18.5 - bmi;
-        } else {
-
+            goalBmi = 18.5 - bmi;
+        } else { // if bmi is over 24.9
+            goalBmi = bmi - 24.9;
         }
 
     }
