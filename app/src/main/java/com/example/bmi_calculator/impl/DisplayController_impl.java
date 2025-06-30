@@ -107,13 +107,17 @@ public class DisplayController_impl implements DisplayController {
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
             return comment = "ERROR_VALUE";
         } else if (bmi < 18.5) {
-            return comment = "you are too skinny..";
+            return comment = "underweight.";
         } else if (bmi >= 18.5 && bmi < 25) {
-            return comment = "you are healthy:)";
+            return comment = "normal weight.";
         } else if (bmi >= 25 && bmi < 30) {
-            return comment = "you are overweight..";
-        } else { // bmi >= 30
-            return comment = "you are obese:(";
+            return comment = "pre-obesity.";
+        } else if (bmi >= 30 && bmi < 34.9){
+            return comment = "obesity class I";
+        } else if (bmi >= 35 && bmi < 39.9) {
+            return comment = "obesity class II";
+        } else {
+            return comment = "obesity class III";
         }
     }
 
@@ -135,7 +139,19 @@ public class DisplayController_impl implements DisplayController {
     }
 
     private String showGoalWeight() {
+        double bmi = bmiCalculate.getBmi();
+        double calcWeight = bmiCalculate.getCalcWeight();
+        double goalWeight = bmiCalculate.getGoalWeight();
+        double dietWeight;
+        String comment;
 
+        if (bmi < 18.5) {
+            dietWeight = goalWeight + calcWeight;
+            return comment = "";
+        } else {
+            dietWeight = calcWeight - goalWeight;
+            return comment = "";
+        }
     }
 
     /**

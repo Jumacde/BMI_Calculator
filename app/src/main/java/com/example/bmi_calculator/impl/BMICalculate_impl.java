@@ -79,8 +79,8 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     @Override
-    public void callCalcApproWeight() {
-        calcApproWeight();
+    public void callStandardWeight() {
+        callStandardWeight();
     }
 
     /**
@@ -126,14 +126,14 @@ public class BMICalculate_impl implements BMICalculate {
 
     /**
      * method: calculate appropriate weight.
-     * appropriate weight = height × height * 22
+     * calculate method of standard weight = height × height * 22
      * **/
-    private void calcApproWeight() {
-        double approWeight = calcHeight * calcHeight * 22;
+    private void standardWeight() {
+        double standardWeight = calcHeight * calcHeight * 22;
         if (bmi < 18.5) {
-            goalWeight = approWeight - calcWeight;
+            goalWeight = standardWeight - calcWeight;
         } else if (bmi > 29.9) {
-            goalWeight = calcWeight - approWeight;
+            goalWeight = calcWeight - standardWeight;
         }
     }
 
