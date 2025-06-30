@@ -128,13 +128,17 @@ public class DisplayController_impl implements DisplayController {
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
             return comment = "ERROR_VALUE";
         } else if (bmi < 17.5) {
-            return comment = "you are too skinny..";
+            return comment = "underweight.";
         } else if (bmi >= 17.5 && bmi < 23) {
-            return comment = "you are healthy:)";
+            return comment = "normal weight.";
         } else if (bmi >= 23 && bmi < 28) {
-            return comment = "you are overweight..";
-        } else { // bmi >= 28
-            return comment = "you are obese:(";
+            return comment = "pre-obesity.";
+        } else if (bmi >= 28 && bmi < 30){ // bmi >= 28
+            return comment = "obesity class I";
+        } else if (bmi >= 30 && bmi < 35) {
+            return comment = "obesity class II";
+        } else {
+            return comment = "obesity class III";
         }
     }
 
