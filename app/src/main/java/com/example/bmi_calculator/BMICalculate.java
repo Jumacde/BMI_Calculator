@@ -15,4 +15,5 @@ public interface BMICalculate {
 
     // wrap methods
     void callCalcBmi();
+    void callCalcGoal();
 }

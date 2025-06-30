@@ -67,6 +67,11 @@ public class BMICalculate_impl implements BMICalculate {
         calcBmi();
     }
 
+    @Override
+    public void callCalcGoal() {
+        calcGoal();
+    }
+
     /**
      * method: calculate BMI
      * 1. from inputted number remove units(cm or kg) and pick up only a number(height and weight).
@@ -106,6 +111,17 @@ public class BMICalculate_impl implements BMICalculate {
         } else {
             bmi = Double.NaN; // not a number.
         }
+    }
+
+    /**
+     * method: calculate goal bmi.
+     *  - if the bmi not between 18.5 and 24.9 calculate the goal bmi.
+     *   1a. if the bmi is under 18.5, calculate "18,5 - bmi".
+     *   1b. if the bmi is over 24.9, calculate "bmi - 24.9".
+     *   2. calculate goal bmi from this value.
+     * **/
+    private void calcGoal() {
+
     }
 
 
