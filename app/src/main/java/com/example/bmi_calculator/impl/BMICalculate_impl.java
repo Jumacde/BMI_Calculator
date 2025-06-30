@@ -68,8 +68,8 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     @Override
-    public void callCalcGoalBmi() {
-        calcGoalBmi();
+    public void callCalcApproWeight() {
+        calcApproWeight();
     }
 
     /**
@@ -114,20 +114,17 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     /**
-     * method: calculate goal bmi.
-     *  - if the bmi not between 18.5 and 24.9 calculate the goal bmi.
-     *   1a. if the bmi is under 18.5, calculate "18,5 - bmi".
-     *   1b. if the bmi is over 24.9, calculate "bmi - 24.9".
-     *   2. calculate goal bmi from this value.
+     * method: calculate appropriate weight.
+     * appropriate weight = height × height * 22
      * **/
-    private void calcGoalBmi() {
-        double goalBmi;
-        if (bmi < 18.5) { // if bmi is under 18.5
-            goalBmi = 18.5 - bmi;
-        } else { // if bmi is over 24.9
-            goalBmi = bmi - 24.9;
+    private void calcApproWeight() {
+        double approWeight = calcHeight * calcHeight * 22;
+        double goalWeight;
+        if (bmi < 18.5) {
+            goalWeight = approWeight - calcWeight;
+        } else if (bmi > 29.9) {
+            goalWeight = calcWeight - approWeight;
         }
-
     }
 
 
