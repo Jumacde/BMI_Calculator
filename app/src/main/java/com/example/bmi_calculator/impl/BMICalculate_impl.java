@@ -68,8 +68,8 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     @Override
-    public void callCalcGoal() {
-        calcGoal();
+    public void callCalcGoalBmi() {
+        calcGoalBmi();
     }
 
     /**
@@ -120,7 +120,13 @@ public class BMICalculate_impl implements BMICalculate {
      *   1b. if the bmi is over 24.9, calculate "bmi - 24.9".
      *   2. calculate goal bmi from this value.
      * **/
-    private void calcGoal() {
+    private void calcGoalBmi() {
+        double goalBMI;
+        if (bmi < 18.5) { // if bmi is under 18.5
+            goalBMI = 18.5 - bmi;
+        } else {
+
+        }
 
     }
 
