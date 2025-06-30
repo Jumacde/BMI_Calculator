@@ -7,6 +7,7 @@ public class BMICalculate_impl implements BMICalculate {
     private double calcHeight;
     private double calcWeight;
     private double bmi;
+    private double goalWeight;
     private boolean isInput;
 
     private final InputController inputController;
@@ -36,6 +37,11 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     @Override
+    public double getGoalWeight() {
+        return goalWeight;
+    }
+
+    @Override
     public boolean getIsInput() {
         return isInput;
     }
@@ -54,6 +60,11 @@ public class BMICalculate_impl implements BMICalculate {
     @Override
     public void setBmi(double bmi) {
         this.bmi = bmi;
+    }
+
+    @Override
+    public void setGoalWeight(double goalWeight) {
+        this.goalWeight = goalWeight;
     }
 
     @Override
@@ -119,7 +130,6 @@ public class BMICalculate_impl implements BMICalculate {
      * **/
     private void calcApproWeight() {
         double approWeight = calcHeight * calcHeight * 22;
-        double goalWeight;
         if (bmi < 18.5) {
             goalWeight = approWeight - calcWeight;
         } else if (bmi > 29.9) {

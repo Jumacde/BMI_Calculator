@@ -62,6 +62,11 @@ public class DisplayController_impl implements DisplayController {
         return showCommentAsian();
     }
 
+    @Override
+    public String callShowGoalWeight() {
+        return showGoalWeight();
+    }
+
     /**
      * wrap method: to use updateDisplay method.
      * @ Param: double num
@@ -96,6 +101,7 @@ public class DisplayController_impl implements DisplayController {
 
     private String showComment() {
         double bmi = bmiCalculate.getBmi();
+        double goalWeight = bmiCalculate.getGoalWeight();
         String comment;
         // normal case
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
@@ -127,6 +133,11 @@ public class DisplayController_impl implements DisplayController {
             return comment = "you are obese:(";
         }
     }
+
+    private String showGoalWeight() {
+
+    }
+
     /**
      * - method: float number format to a integer
      * @ param: double num
