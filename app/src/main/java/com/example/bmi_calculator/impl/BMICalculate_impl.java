@@ -92,7 +92,7 @@ public class BMICalculate_impl implements BMICalculate {
 
     @Override
     public void callStandardWeight() {
-        callStandardWeight();
+        standardWeight();
     }
 
     /**
