@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 String commentGoalText = displayController.callShowGoalWeight();
                 // comment for asian.
                 if (aCheckBox.isChecked()) {
-                    commentText = displayController.callShowCommentAsian();
-                    commentGoalText = displayController.callShowGoalWeightAsian();
+                    commentText = displayController.callShowComment();
+                    commentGoalText = displayController.callShowGoalWeight();
                 } else {
                     commentText = displayController.callShowComment();
                     commentGoalText = displayController.callShowGoalWeight();

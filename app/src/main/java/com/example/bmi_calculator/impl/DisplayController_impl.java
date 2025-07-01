@@ -58,18 +58,8 @@ public class DisplayController_impl implements DisplayController {
     }
 
     @Override
-    public String callShowCommentAsian() {
-        return showCommentAsian();
-    }
-
-    @Override
     public String callShowGoalWeight() {
         return showGoalWeight();
-    }
-
-    @Override
-    public String callShowGoalWeightAsian() {
-        return showGoalWeightAsian();
     }
 
     /**
@@ -108,44 +98,45 @@ public class DisplayController_impl implements DisplayController {
         double bmi = bmiCalculate.getBmi();
         double goalWeight = bmiCalculate.getGoalWeight();
         String comment;
+        boolean isAsian = bmiCalculate.getIsAsian();
+        bmiCalculate.setIsAsian(true);
         // normal case
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
-            return comment = "ERROR_VALUE";
-        } else if (bmi < 18.5) {
-            return comment = "underweight.";
-        } else if (bmi >= 18.5 && bmi < 25) {
-            return comment = "normal weight.";
-        } else if (bmi >= 25 && bmi < 30) {
-            return comment = "pre-obesity.";
-        } else if (bmi >= 30 && bmi < 34.9){
-            return comment = "obesity class I";
-        } else if (bmi >= 35 && bmi < 39.9) {
-            return comment = "obesity class II";
-        } else {
-            return comment = "obesity class III";
+            return "ERROR_VALUE";
         }
+
+        if (isAsian) {
+            if (bmi < 17.5) {
+                comment = "underweight.";
+            } else if (bmi >= 17.5 && bmi < 23) {
+                comment = "normal weight.";
+            } else if (bmi >= 23 && bmi < 28) {
+                comment = "pre-obesity.";
+            } else if (bmi >= 27.5 && bmi < 30){ // bmi >= 28
+                comment = "obesity class I";
+            } else if (bmi >= 30 && bmi < 35) {
+                comment = "obesity class II";
+            } else {
+                comment = "obesity class III";
+            }
+        } else {
+            if (bmi < 18.5) {
+                comment = "underweight.";
+            } else if (bmi >= 18.5 && bmi < 25) {
+                comment = "normal weight.";
+            } else if (bmi >= 25 && bmi < 30) {
+                comment = "pre-obesity.";
+            } else if (bmi >= 30 && bmi < 34.9){
+                comment = "obesity class I";
+            } else if (bmi >= 35 && bmi < 39.9) {
+                comment = "obesity class II";
+            } else {
+                comment = "obesity class III";
+            }
+        }
+        return comment;
     }
 
-    private String showCommentAsian() {
-        double bmi = bmiCalculate.getBmi();
-        String comment;
-        // normal case
-        if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
-            return comment = "ERROR_VALUE";
-        } else if (bmi < 17.5) {
-            return comment = "underweight.";
-        } else if (bmi >= 17.5 && bmi < 23) {
-            return comment = "normal weight.";
-        } else if (bmi >= 23 && bmi < 28) {
-            return comment = "pre-obesity.";
-        } else if (bmi >= 27.5 && bmi < 30){ // bmi >= 28
-            return comment = "obesity class I";
-        } else if (bmi >= 30 && bmi < 35) {
-            return comment = "obesity class II";
-        } else {
-            return comment = "obesity class III";
-        }
-    }
 
     private String showGoalWeight() {
         double bmi = bmiCalculate.getBmi();
@@ -154,29 +145,23 @@ public class DisplayController_impl implements DisplayController {
         double dietWeightGain = goalWeight + calcWeight;
         double dietWeightLoss = calcWeight - goalWeight;
         String commentGoal;
-
-        if (bmi < 18.5) {
-            return commentGoal = "goal weight gain +" + dietWeightGain + "kg";
+        boolean isAsian = bmiCalculate.getIsAsian();
+        bmiCalculate.setIsAsian(true);
+        if (isAsian) {
+            if (bmi < 17.5) {
+                return commentGoal = "goal weight gain +" + dietWeightGain + "kg";
+            } else {
+                return commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+            }
         } else {
-            return commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+            if (bmi < 18.5) {
+                return commentGoal = "goal weight gain +" + dietWeightGain + "kg";
+            } else {
+                return commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+            }
         }
     }
 
-    private String showGoalWeightAsian() {
-        double bmi = bmiCalculate.getBmi();
-        double calcWeight = bmiCalculate.getCalcWeight();
-        double goalWeight = bmiCalculate.getGoalWeight();
-        double dietWeight;
-        String comment;
-
-        if (bmi < 17.5) {
-            dietWeight = goalWeight + calcWeight;
-            return comment = "goal weight gain +" + dietWeight + "kg";
-        } else {
-            dietWeight = calcWeight - goalWeight;
-            return comment = "goal weight loss -" + dietWeight + "kg";
-        }
-    }
 
     /**
      * - method: float number format to a integer
