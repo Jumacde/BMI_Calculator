@@ -126,7 +126,7 @@ public class BMICalculate_impl implements BMICalculate {
 
     /**
      * method: calculate appropriate weight.
-     * calculate method of standard weight = height × height * 22
+     * calculate method of standard weight = height(cm) × height(cm) * 0.0022
      * **/
     private void standardWeight() {
         double standardWeight = calcHeight * calcHeight * 0.0022;
