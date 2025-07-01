@@ -155,17 +155,17 @@ public class DisplayController_impl implements DisplayController {
 
         if (isAsian) {
             if (bmi < 17.5) {
-                commentGoal = "goal weight gain +" + dietWeightGain + "kg";
+                commentGoal = "goal weight gain +" + formatNumber(dietWeightGain) + "kg";
             } else if (bmi > 23){
-                commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+                commentGoal = "goal weight loss -" + formatNumber(dietWeightLoss) + "kg";
             } else {
                 commentGoal = "";
             }
         } else {
             if (bmi < 18.5) {
-                commentGoal = "goal weight gain +" + dietWeightGain + "kg";
+                commentGoal = "goal weight gain +" + formatNumber(dietWeightGain) + "kg";
             } else if (bmi > 25){
-                commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+                commentGoal = "goal weight loss -" + formatNumber(dietWeightLoss) + "kg";
             } else {
                 commentGoal = "";
             }
