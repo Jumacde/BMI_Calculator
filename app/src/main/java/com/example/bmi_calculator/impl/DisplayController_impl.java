@@ -100,7 +100,7 @@ public class DisplayController_impl implements DisplayController {
         String comment;
         boolean isAsian = bmiCalculate.getIsAsian();
         bmiCalculate.setIsAsian(true);
-        // normal case
+
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
             return "ERROR_VALUE";
         }
@@ -137,9 +137,10 @@ public class DisplayController_impl implements DisplayController {
         return comment;
     }
 
-
     private String showGoalWeight() {
         double bmi = bmiCalculate.getBmi();
+        bmiCalculate.callStandardWeight();
+
         double calcWeight = bmiCalculate.getCalcWeight();
         double goalWeight = bmiCalculate.getGoalWeight();
         double dietWeightGain = goalWeight + calcWeight;
@@ -147,19 +148,25 @@ public class DisplayController_impl implements DisplayController {
         String commentGoal;
         boolean isAsian = bmiCalculate.getIsAsian();
         bmiCalculate.setIsAsian(true);
+
+        if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
+            return "ERROR_VALUE";
+        }
+
         if (isAsian) {
             if (bmi < 17.5) {
-                return commentGoal = "goal weight gain +" + dietWeightGain + "kg";
+                commentGoal = "goal weight gain +" + dietWeightGain + "kg";
             } else {
-                return commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+                commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
             }
         } else {
             if (bmi < 18.5) {
-                return commentGoal = "goal weight gain +" + dietWeightGain + "kg";
+                commentGoal = "goal weight gain +" + dietWeightGain + "kg";
             } else {
-                return commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+                commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
             }
         }
+        return commentGoal;
     }
 
 
