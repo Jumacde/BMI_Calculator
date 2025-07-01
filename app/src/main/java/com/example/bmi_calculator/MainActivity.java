@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         textViewBMI = findViewById(R.id.bmiText);
         textViewComment = findViewById(R.id.commentText);
+
         editTextHeight = (EditText) findViewById(R.id.height);
         editTextWeight = (EditText) findViewById(R.id.weight);
         aCheckBox = findViewById(R.id.checkbox);
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         // set units on the display.
         editTextHeight.setText("0cm");
         editTextWeight.setText("0kg");
+        textViewBMI.setText("0");
+        textViewComment.setText("");
+
 
         // cursor moves on the weight textview after input finish on the height and push "enter".
         editTextHeight.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -110,14 +114,6 @@ public class MainActivity extends AppCompatActivity {
                 String bmiResultText = displayController.callShowBMI();
                 String commentText = displayController.callShowComment();
                 String commentGoalText = displayController.callShowGoalWeight();
-                // comment for asian.
-                if (aCheckBox.isChecked()) {
-                    commentText = displayController.callShowComment();
-                    commentGoalText = displayController.callShowGoalWeight();
-                } else {
-                    commentText = displayController.callShowComment();
-                    commentGoalText = displayController.callShowGoalWeight();
-                }
 
                 if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText)) {
                     // show error dialog
@@ -131,8 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     textViewComment.setText(""); // initialise text
                 } else {
                     textViewBMI.setText(bmiResultText); // get the BMI result.
-                    textViewComment.setText(commentText);
-                    textViewComment.setText(commentGoalText);
+                    textViewComment.setText(commentText + "\n" + commentGoalText); // get comment and the goal weight.
                 }
 
                 // hide the keyboard
