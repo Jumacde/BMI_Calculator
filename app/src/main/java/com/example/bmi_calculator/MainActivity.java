@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 String commentText = displayController.callShowComment();
                 String commentGoalText = displayController.callShowGoalWeight();
 
-                if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText)) {
+                if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText) || "ERROR_VALUE".equals(commentGoalText)) {
                     // show error dialog
                     new AlertDialog.Builder(MainActivity.this)
                             .setTitle("Error")
