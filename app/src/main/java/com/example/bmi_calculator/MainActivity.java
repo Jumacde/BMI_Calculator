@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 // get both editText and convert to String.
                 inputController.setHeight(editTextHeight.getText().toString());
                 inputController.setWeight(editTextWeight.getText().toString());
+                bmiCalculate.setIsAsian(aCheckBox.isChecked()); // check asian.
                 buttonController.callPushSubmitButton(); // calculate BMI.
 
                 // set up error message on a new message window.

@@ -169,7 +169,6 @@ public class DisplayController_impl implements DisplayController {
         return commentGoal;
     }
 
-
     /**
      * - method: float number format to a integer
      * @ param: double num
