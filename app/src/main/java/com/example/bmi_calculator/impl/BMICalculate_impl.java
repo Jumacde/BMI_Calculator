@@ -141,7 +141,7 @@ public class BMICalculate_impl implements BMICalculate {
      * **/
     private void standardWeight() {
         double standardWeight = calcHeight * calcHeight * 0.0022;
-        setIsAsian(true);
+        //setIsAsian(true);
         if (isAsian) {
             if (bmi < 17.5) {
                 goalWeight = standardWeight - calcWeight;

@@ -99,7 +99,7 @@ public class DisplayController_impl implements DisplayController {
         double goalWeight = bmiCalculate.getGoalWeight();
         String comment;
         boolean isAsian = bmiCalculate.getIsAsian();
-        bmiCalculate.setIsAsian(true);
+        //bmiCalculate.setIsAsian(true);
 
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
             return "ERROR_VALUE";
@@ -147,7 +147,7 @@ public class DisplayController_impl implements DisplayController {
         double dietWeightLoss = calcWeight - goalWeight;
         String commentGoal;
         boolean isAsian = bmiCalculate.getIsAsian();
-        bmiCalculate.setIsAsian(true);
+        //bmiCalculate.setIsAsian(true);
 
         if (Double.isInfinite(bmi) || Double.isNaN(bmi)) {
             return "ERROR_VALUE";
@@ -156,14 +156,18 @@ public class DisplayController_impl implements DisplayController {
         if (isAsian) {
             if (bmi < 17.5) {
                 commentGoal = "goal weight gain +" + dietWeightGain + "kg";
-            } else {
+            } else if (bmi > 23){
                 commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+            } else {
+                commentGoal = "";
             }
         } else {
             if (bmi < 18.5) {
                 commentGoal = "goal weight gain +" + dietWeightGain + "kg";
-            } else {
+            } else if (bmi > 25){
                 commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
+            } else {
+                commentGoal = "";
             }
         }
         return commentGoal;
