@@ -151,10 +151,10 @@ public class DisplayController_impl implements DisplayController {
 
         if (bmi < 18.5) {
             dietWeight = goalWeight + calcWeight;
-            return comment = "goal weight gain: " + dietWeight;
+            return comment = "goal weight gain +" + dietWeight + "kg";
         } else {
             dietWeight = calcWeight - goalWeight;
-            return comment = "goal weight loss: " + dietWeight;
+            return comment = "goal weight loss -" + dietWeight + "kg";
         }
     }
 
