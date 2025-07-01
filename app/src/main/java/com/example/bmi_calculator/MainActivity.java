@@ -108,9 +108,11 @@ public class MainActivity extends AppCompatActivity {
                 // set up error message on a new message window.
                 String bmiResultText = displayController.callShowBMI();
                 String commentText = displayController.callShowComment();
+                String commentGoalText = displayController.callShowGoalWeight();
                 // comment for asian.
                 if (aCheckBox.isChecked()) {
                     commentText = displayController.callShowCommentAsian();
+                    commentGoalText =
                 } else {
                     commentText = displayController.callShowComment();
                 }

@@ -67,6 +67,11 @@ public class DisplayController_impl implements DisplayController {
         return showGoalWeight();
     }
 
+    @Override
+    public String callShowGoalWeightAsian() {
+        return showGoalWeightAsian();
+    }
+
     /**
      * wrap method: to use updateDisplay method.
      * @ Param: double num
@@ -150,6 +155,22 @@ public class DisplayController_impl implements DisplayController {
         String comment;
 
         if (bmi < 18.5) {
+            dietWeight = goalWeight + calcWeight;
+            return comment = "goal weight gain +" + dietWeight + "kg";
+        } else {
+            dietWeight = calcWeight - goalWeight;
+            return comment = "goal weight loss -" + dietWeight + "kg";
+        }
+    }
+
+    private String showGoalWeightAsian() {
+        double bmi = bmiCalculate.getBmi();
+        double calcWeight = bmiCalculate.getCalcWeight();
+        double goalWeight = bmiCalculate.getGoalWeight();
+        double dietWeight;
+        String comment;
+
+        if (bmi < 17.5) {
             dietWeight = goalWeight + calcWeight;
             return comment = "goal weight gain +" + dietWeight + "kg";
         } else {

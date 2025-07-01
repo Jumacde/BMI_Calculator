@@ -129,7 +129,7 @@ public class BMICalculate_impl implements BMICalculate {
      * calculate method of standard weight = height × height * 22
      * **/
     private void standardWeight() {
-        double standardWeight = calcHeight * calcHeight * 22;
+        double standardWeight = calcHeight * calcHeight * 0.0022;
         if (bmi < 18.5) {
             goalWeight = standardWeight - calcWeight;
         } else if (bmi > 29.9) {

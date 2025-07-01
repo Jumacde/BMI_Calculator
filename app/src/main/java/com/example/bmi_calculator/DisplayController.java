@@ -13,5 +13,6 @@ public interface DisplayController {
     String callShowComment();
     String callShowCommentAsian();
     String callShowGoalWeight();
+    String callShowGoalWeightAsian();
     String callFormatNumber(double num);
 }
