@@ -138,7 +138,7 @@ public class DisplayController_impl implements DisplayController {
             return comment = "normal weight.";
         } else if (bmi >= 23 && bmi < 28) {
             return comment = "pre-obesity.";
-        } else if (bmi >= 28 && bmi < 30){ // bmi >= 28
+        } else if (bmi >= 27.5 && bmi < 30){ // bmi >= 28
             return comment = "obesity class I";
         } else if (bmi >= 30 && bmi < 35) {
             return comment = "obesity class II";
@@ -151,15 +151,14 @@ public class DisplayController_impl implements DisplayController {
         double bmi = bmiCalculate.getBmi();
         double calcWeight = bmiCalculate.getCalcWeight();
         double goalWeight = bmiCalculate.getGoalWeight();
-        double dietWeight;
-        String comment;
+        double dietWeightGain = goalWeight + calcWeight;
+        double dietWeightLoss = calcWeight - goalWeight;
+        String commentGoal;
 
         if (bmi < 18.5) {
-            dietWeight = goalWeight + calcWeight;
-            return comment = "goal weight gain +" + dietWeight + "kg";
+            return commentGoal = "goal weight gain +" + dietWeightGain + "kg";
         } else {
-            dietWeight = calcWeight - goalWeight;
-            return comment = "goal weight loss -" + dietWeight + "kg";
+            return commentGoal = "goal weight loss -" + dietWeightLoss + "kg";
         }
     }
 

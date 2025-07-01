@@ -112,9 +112,10 @@ public class MainActivity extends AppCompatActivity {
                 // comment for asian.
                 if (aCheckBox.isChecked()) {
                     commentText = displayController.callShowCommentAsian();
-                    commentGoalText =
+                    commentGoalText = displayController.callShowGoalWeightAsian();
                 } else {
                     commentText = displayController.callShowComment();
+                    commentGoalText = displayController.callShowGoalWeight();
                 }
 
                 if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText)) {
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     textViewBMI.setText(bmiResultText); // get the BMI result.
                     textViewComment.setText(commentText);
+                    textViewComment.setText(commentGoalText);
                 }
 
                 // hide the keyboard

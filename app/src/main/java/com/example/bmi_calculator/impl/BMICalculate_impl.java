@@ -9,6 +9,7 @@ public class BMICalculate_impl implements BMICalculate {
     private double bmi;
     private double goalWeight;
     private boolean isInput;
+    private boolean isAsian;
 
     private final InputController inputController;
 
@@ -18,6 +19,7 @@ public class BMICalculate_impl implements BMICalculate {
         this.calcHeight = 0;
         this.calcWeight = 0;
         this.isInput = false;
+        this.isAsian = false;
     }
 
     // getter
@@ -46,6 +48,11 @@ public class BMICalculate_impl implements BMICalculate {
         return isInput;
     }
 
+    @Override
+    public boolean getIsAsian() {
+        return isAsian;
+    }
+
     // setter
     @Override
     public void setCalcHeight(double calcHeight) {
@@ -70,6 +77,11 @@ public class BMICalculate_impl implements BMICalculate {
     @Override
     public void setIsInput(boolean isInput) {
         this.isInput = isInput;
+    }
+
+    @Override
+    public void setIsAsian(boolean isAsian) {
+        this.isAsian = isAsian;
     }
 
     // wrap methods
@@ -118,7 +130,6 @@ public class BMICalculate_impl implements BMICalculate {
             } catch (NumberFormatException  nFe) {
                 bmi = Double.NaN; // not a number.
             }
-
         } else {
             bmi = Double.NaN; // not a number.
         }
@@ -130,10 +141,23 @@ public class BMICalculate_impl implements BMICalculate {
      * **/
     private void standardWeight() {
         double standardWeight = calcHeight * calcHeight * 0.0022;
-        if (bmi < 18.5) {
-            goalWeight = standardWeight - calcWeight;
-        } else if (bmi > 29.9) {
-            goalWeight = calcWeight - standardWeight;
+        setIsAsian(true);
+        if (isAsian) {
+            if (bmi < 17.5) {
+                goalWeight = standardWeight - calcWeight;
+            } else if (bmi > 23) {
+                goalWeight = calcWeight - standardWeight;
+            } else {
+                goalWeight = 0;
+            }
+        } else {
+            if (bmi < 18.5) {
+                goalWeight = standardWeight - calcWeight;
+            } else if (bmi > 25) {
+                goalWeight = calcWeight - standardWeight;
+            } else {
+                goalWeight = 0;
+            }
         }
     }
 

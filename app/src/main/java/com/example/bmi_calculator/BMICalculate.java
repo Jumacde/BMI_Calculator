@@ -7,6 +7,7 @@ public interface BMICalculate {
     double getBmi();
     double getGoalWeight();
     boolean getIsInput();
+    boolean getIsAsian();
 
     // setter
     void setCalcHeight(double calcHeight);
@@ -14,6 +15,7 @@ public interface BMICalculate {
     void setBmi(double bmi);
     void setGoalWeight(double goalWeight);
     void setIsInput(boolean isInput);
+    void setIsAsian(boolean isAsian);
 
     // wrap methods
     void callCalcBmi();
