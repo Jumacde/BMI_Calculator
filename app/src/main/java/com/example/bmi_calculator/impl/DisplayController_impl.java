@@ -1,7 +1,6 @@
 package com.example.bmi_calculator.impl;
 
 import android.annotation.SuppressLint;
-import android.health.connect.datatypes.units.Mass;
 
 import com.example.bmi_calculator.BMICalculate;
 import com.example.bmi_calculator.ButtonController;
@@ -142,12 +141,13 @@ public class DisplayController_impl implements DisplayController {
 
     private String showGoalWeight() {
         double bmi = bmiCalculate.getBmi();
-        bmiCalculate.callStandardWeight();
+        bmiCalculate.callCalcGoalWeight();
 
         double calcWeight = bmiCalculate.getCalcWeight();
+        double standardWeight =bmiCalculate.getStandardWeight();
         double goalWeight = bmiCalculate.getGoalWeight();
-        double dietWeightGain = goalWeight - calcWeight;
-        double dietWeightLoss = calcWeight - goalWeight;
+        double dietWeightGain = standardWeight - calcWeight;
+        double dietWeightLoss = calcWeight - standardWeight;
         String commentGoal;
         boolean isAsian = bmiCalculate.getIsAsian();
         //bmiCalculate.setIsAsian(true);

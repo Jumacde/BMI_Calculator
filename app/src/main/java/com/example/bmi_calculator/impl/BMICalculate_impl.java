@@ -9,6 +9,7 @@ public class BMICalculate_impl implements BMICalculate {
     private double calcHeight;
     private double calcWeight;
     private double bmi;
+    private double standardWeight;
     private double goalWeight;
     private boolean isInput;
     private boolean isAsian;
@@ -20,6 +21,8 @@ public class BMICalculate_impl implements BMICalculate {
         this.bmi = 0;
         this.calcHeight = 0;
         this.calcWeight = 0;
+        this.standardWeight = 0;
+        this.goalWeight = 0;
         this.isInput = false;
         this.isAsian = false;
     }
@@ -38,6 +41,11 @@ public class BMICalculate_impl implements BMICalculate {
     @Override
     public double getBmi() {
         return bmi;
+    }
+
+    @Override
+    public double getStandardWeight() {
+        return standardWeight;
     }
 
     @Override
@@ -72,6 +80,13 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     @Override
+    public void setStandardWeight(double standardWeight) {
+        // standard weight = height(cm) × height(cm) * 0.0022
+        this.standardWeight = calcHeight * calcHeight * 0.0022;
+
+    }
+
+    @Override
     public void setGoalWeight(double goalWeight) {
         this.goalWeight = goalWeight;
     }
@@ -93,8 +108,8 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     @Override
-    public void callStandardWeight() {
-        standardWeight();
+    public double callCalcGoalWeight() {
+        return calcGoalWeight();
     }
 
     /**
@@ -138,12 +153,12 @@ public class BMICalculate_impl implements BMICalculate {
     }
 
     /**
-     * method: calculate appropriate weight.
-     * calculate method of standard weight = height(cm) × height(cm) * 0.0022
+     * method: calculate goal weight.
+     * calculate method of goal weight = height(cm) × height(cm) * 0.0022
      * **/
-    private void standardWeight() {
-        double standardWeight = calcHeight * calcHeight * 0.0022;
+    private double calcGoalWeight() {
         //setIsAsian(true);
+        setStandardWeight(0);
         if (isAsian) {
             if (bmi < 17.5) {
                 goalWeight = standardWeight - calcWeight;
@@ -161,7 +176,6 @@ public class BMICalculate_impl implements BMICalculate {
                 goalWeight = 0;
             }
         }
+        return goalWeight;
     }
-
-
 }
