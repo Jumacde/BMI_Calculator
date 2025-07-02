@@ -138,11 +138,11 @@ public class MainActivity extends AppCompatActivity {
                     // set text color
                     if (commentText.contains("normal weight.")) {
                         textViewComment.setTextColor(
-                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_blue_bright)
+                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_blue_dark)
                         );
                     } else if (commentText.contains("underweight.") || commentText.contains("pre-obesity.")) {
                         textViewComment.setTextColor(
-                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_orange_light)
+                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_orange_dark)
                         );
                     } else {
                         textViewComment.setTextColor(
