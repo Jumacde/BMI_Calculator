@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.bmi_calculator.impl.BMICalculate_impl;
 import com.example.bmi_calculator.impl.DisplayController_impl;
@@ -115,23 +116,45 @@ public class MainActivity extends AppCompatActivity {
                 String commentText = displayController.callShowComment();
                 String commentGoalText = displayController.callShowGoalWeight(); // show goal weight.
 
-                if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText) || "ERROR_VALUE".equals(commentGoalText)) {
+                if ("ERROR_VALUE".equals(bmiResultText)
+                        || "ERROR_VALUE".equals(commentText)
+                        || "ERROR_VALUE".equals(commentGoalText)) {
                     // show error dialog
                     new AlertDialog.Builder(MainActivity.this)
                             .setTitle("Error")
-                            .setMessage("failed height or weight.\nplease input your height and weight again.")
+                            .setMessage("failed height or weight." +
+                                    "\nplease input your height and weight again.")
                             .setPositiveButton("OK", (dialog,whitch)-> {
                                 // nothing to do what does after pushing ok button.
                             }).show();
                     textViewBMI.setText("0"); // initialise text
                     textViewComment.setText(""); // initialise text
+                    // set text color.
+                    textViewComment.setTextColor(ContextCompat.
+                            getColor(MainActivity.this, android.R.color.black));
                 } else {
                     textViewBMI.setText(bmiResultText); // get the BMI result.
                     textViewComment.setText(commentText + "\n" + commentGoalText); // get comment and the goal weight.
+                    // set text color
+                    if (commentText.contains("normal weight.")) {
+                        textViewComment.setTextColor(
+                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_blue_bright)
+                        );
+                    } else if (commentText.contains("underweight.") || commentText.contains("pre-obesity.")) {
+                        textViewComment.setTextColor(
+                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_orange_light)
+                        );
+                    } else {
+                        textViewComment.setTextColor(
+                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_light)
+                        );
+                    }
+
                 }
 
                 // hide the keyboard
-                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager inputMethodManager =
+                        (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 if(inputMethodManager != null) {
                     inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 }
