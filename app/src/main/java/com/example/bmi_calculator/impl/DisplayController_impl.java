@@ -1,6 +1,7 @@
 package com.example.bmi_calculator.impl;
 
 import android.annotation.SuppressLint;
+import android.health.connect.datatypes.units.Mass;
 
 import com.example.bmi_calculator.BMICalculate;
 import com.example.bmi_calculator.ButtonController;
@@ -13,6 +14,7 @@ public class DisplayController_impl implements DisplayController {
     private final BMICalculate bmiCalculate;
     private final ButtonController buttonController;
     private final InputController inputController;
+    private double num;
 
     public DisplayController_impl(BMICalculate bmiCalculate, ButtonController buttonController, InputController inputController) {
         this.bmiCalculate = bmiCalculate;
@@ -61,6 +63,7 @@ public class DisplayController_impl implements DisplayController {
     public String callShowGoalWeight() {
         return showGoalWeight();
     }
+
 
     /**
      * wrap method: to use updateDisplay method.
@@ -143,7 +146,7 @@ public class DisplayController_impl implements DisplayController {
 
         double calcWeight = bmiCalculate.getCalcWeight();
         double goalWeight = bmiCalculate.getGoalWeight();
-        double dietWeightGain = goalWeight + calcWeight;
+        double dietWeightGain = goalWeight - calcWeight;
         double dietWeightLoss = calcWeight - goalWeight;
         String commentGoal;
         boolean isAsian = bmiCalculate.getIsAsian();
@@ -155,17 +158,17 @@ public class DisplayController_impl implements DisplayController {
 
         if (isAsian) {
             if (bmi < 17.5) {
-                commentGoal = "goal weight gain +" + formatNumber(dietWeightGain) + "kg";
+                commentGoal = "goal weight gain +" + formatNumber(Math.abs(dietWeightGain)) + "kg";
             } else if (bmi > 23){
-                commentGoal = "goal weight loss -" + formatNumber(dietWeightLoss) + "kg";
+                commentGoal = "goal weight loss -" + formatNumber(Math.abs(dietWeightLoss)) + "kg";
             } else {
                 commentGoal = "";
             }
         } else {
             if (bmi < 18.5) {
-                commentGoal = "goal weight gain +" + formatNumber(dietWeightGain) + "kg";
+                commentGoal = "goal weight gain +" + formatNumber(Math.abs(dietWeightGain)) + "kg";
             } else if (bmi > 25){
-                commentGoal = "goal weight loss -" + formatNumber(dietWeightLoss) + "kg";
+                commentGoal = "goal weight loss -" + formatNumber(Math.abs(dietWeightLoss)) + "kg";
             } else {
                 commentGoal = "";
             }

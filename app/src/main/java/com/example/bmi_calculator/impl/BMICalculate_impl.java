@@ -1,5 +1,7 @@
 package com.example.bmi_calculator.impl;
 
+import android.annotation.SuppressLint;
+
 import com.example.bmi_calculator.BMICalculate;
 import com.example.bmi_calculator.InputController;
 

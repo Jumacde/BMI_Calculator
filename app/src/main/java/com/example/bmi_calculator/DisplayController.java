@@ -13,6 +13,5 @@ public interface DisplayController {
     String callShowComment();
 
     String callShowGoalWeight();
-
     String callFormatNumber(double num);
 }

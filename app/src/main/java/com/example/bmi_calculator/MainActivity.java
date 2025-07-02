@@ -113,7 +113,9 @@ public class MainActivity extends AppCompatActivity {
                 // set up error message on a new message window.
                 String bmiResultText = displayController.callShowBMI();
                 String commentText = displayController.callShowComment();
+
                 String commentGoalText = displayController.callShowGoalWeight();
+                ; // show goal weight.
 
                 if ("ERROR_VALUE".equals(bmiResultText) || "ERROR_VALUE".equals(commentText) || "ERROR_VALUE".equals(commentGoalText)) {
                     // show error dialog
