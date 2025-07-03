@@ -4,7 +4,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -135,21 +139,21 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     textViewBMI.setText(bmiResultText); // get the BMI result.
                     textViewComment.setText(commentText + "\n" + commentGoalText); // get comment and the goal weight.
-                    // set text color
-                    if (commentText.contains("normal weight.")) {
-                        textViewComment.setTextColor(
-                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_blue_dark)
-                        );
-                    } else if (commentText.contains("underweight.") || commentText.contains("pre-obesity.")) {
-                        textViewComment.setTextColor(
-                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_orange_dark)
-                        );
-                    } else {
-                        textViewComment.setTextColor(
-                                ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_light)
-                        );
-                    }
 
+                    // set text color
+                    SpannableStringBuilder ssb = new SpannableStringBuilder();
+                    int commentTextColor;
+                    if (commentText.contains("normal weight.")) {
+                        commentTextColor = ContextCompat.getColor(MainActivity.this, android.R.color.holo_blue_dark);
+                    } else if (commentText.contains("underweight.") || commentText.contains("pre-obesity.")) {
+                        commentTextColor = ContextCompat.getColor(MainActivity.this, android.R.color.holo_orange_dark);
+                    } else {
+                        commentTextColor = ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_dark);
+                    }
+                    // set to be color of commentGoalText black.
+                    ssb.append(commentGoalText, new ForegroundColorSpan(ContextCompat.getColor(
+                            MainActivity.this, android.R.color.black)), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    textViewComment.setText(ssb);
                 }
 
                 // hide the keyboard
