@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                         commentTextColor = ContextCompat.getColor(MainActivity.this, android.R.color.holo_blue_dark);
                     } else if (commentText.contains("underweight.") || commentText.contains("pre-obesity.")) {
                         commentTextColor = ContextCompat.getColor(MainActivity.this, android.R.color.holo_orange_dark);
-                    } else {
+                    } else { // obesity class I, II, III
                         commentTextColor = ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_dark);
                     }
                     // set to be color of commentGoalText black.
