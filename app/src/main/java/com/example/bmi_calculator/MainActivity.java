@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     } else { // obesity class I, II, III
                         commentTextColor = ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_dark);
                     }
+                    ssb.append(commentText, new ForegroundColorSpan(commentTextColor), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     // set to be color of commentGoalText black.
                     ssb.append(commentGoalText, new ForegroundColorSpan(ContextCompat.getColor(
                             MainActivity.this, android.R.color.black)), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
