@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextWatcher;
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
      *      3.b. set comment for asian if you check the checkBox.
      *      4. heide the keyboard after push the submit-button.
      *      5. error message shows on a new message-window.
-     * **/
+     * */
     private void setUpSubmitButton(int id) {
         Button button = findViewById(id);
         button.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         commentTextColor = ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_dark);
                     }
                     ssb.append(commentText, new ForegroundColorSpan(commentTextColor), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    ssb.append("\n");
                     // set to be color of commentGoalText black.
                     ssb.append(commentGoalText, new ForegroundColorSpan(ContextCompat.getColor(
                             MainActivity.this, android.R.color.black)), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
