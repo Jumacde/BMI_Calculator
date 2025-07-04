@@ -9,16 +9,21 @@ import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import com.example.bmi_calculator.impl.BMICalculate_impl;
@@ -35,9 +40,17 @@ import com.example.bmi_calculator.impl.InputController_impl;
  * 3.setUpTextWatcher: set to show units(cm and kg) on the input console.
  * **/
 public class MainActivity extends AppCompatActivity {
+    // input field
     private TextView textViewBMI,textViewComment;
+    // input field
     private EditText editTextHeight, editTextWeight;
+    // checkbox
     private CheckBox aCheckBox;
+    // toolbar
+    private Toolbar toolbar;
+    // menu image
+    private ImageButton imageButton;
+
     private InputController inputController;
     private BMICalculate bmiCalculate;
     private DisplayController displayController;
@@ -72,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         textViewBMI.setText("0");
         textViewComment.setText("");
 
+        //setUpToolbar();
 
         // cursor moves on the weight textview after input finish on the height and push "enter".
         editTextHeight.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -188,6 +202,52 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+/**
+*    private void setUpToolbar() {
+ *         toolbar = findViewById(R.id.toolBar);
+ *         setSupportActionBar(toolbar); // set toolbar as ActionBar
+ *         // heide the default title. in order to set the imageButton in the toolbar.
+ *         if (getSupportActionBar() != null) {
+ *             getSupportActionBar().setDisplayShowTitleEnabled(false);
+ *         }
+ *
+ *         imageButton = findViewById(R.id.menuButton);
+ *         imageButton.setOnClickListener(new View.OnClickListener() {
+ *             @Override
+ *             public void onClick(View v) {
+ *                 showPopupMenu(v);
+ *             }
+ *         });
+ *     }
+ *
+ *     private void showPopupMenu(View view) {
+ *         PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
+ *         popupMenu.getMenuInflater().inflate(R.menu.toolbar_menu, popupMenu.getMenu());
+ *
+ *         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+ *             @Override
+ *             public boolean onMenuItemClick(MenuItem item) {
+ *                 int id = item.getItemId();
+ *                 if (id == R.id.action_settings) {
+ *                     Toast.makeText(MainActivity.this, "a",
+ *                             Toast.LENGTH_SHORT).show();
+ *                     return true;
+ *                 } else if (id == R.id.action_about) {
+ *                     Toast.makeText(MainActivity.this, "b",
+ *                             Toast.LENGTH_SHORT).show();
+ *                     return true;
+ *                 } else if (id == R.id.action_exit){
+ *                     Toast.makeText(MainActivity.this, "c",
+ *                             Toast.LENGTH_SHORT).show();
+ *                     return true;
+ *                 }
+ *                 return false;
+ *             }
+ *         });
+ *         popupMenu.show();
+ *     }
+* **/
 
     /**
      * method: TextWatcher: fix to show always a unit (cm and kg)
